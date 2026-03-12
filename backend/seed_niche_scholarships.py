@@ -143,7 +143,7 @@ def seed_niche_scholarships():
             count += 1
             
     db.commit()
-    print(f"✅ Successfully seeded {count} niche African American scholarships into the database.")
+    print(f"Successfully seeded {count} niche African American scholarships into the database.")
     
 if __name__ == "__main__":
     seed_niche_scholarships()

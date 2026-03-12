@@ -143,7 +143,7 @@ def seed_canadian_scholarships():
             count += 1
             
     db.commit()
-    print(f"✅ Successfully seeded {count} Canadian Black student scholarships into the database.")
+    print(f"Successfully seeded {count} Canadian Black student scholarships into the database.")
     
 if __name__ == "__main__":
     seed_canadian_scholarships()

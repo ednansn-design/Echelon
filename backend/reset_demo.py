@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Echelon Demo Reset Script
-=========================
+
 One command to rule them all. Run before every demo:
 
     python reset_demo.py
@@ -31,10 +31,10 @@ from app.models.application import Application
 
 def reset():
     # ── 1. Nuke & recreate all tables ────────────────────────────
-    print("🗑️  Dropping all tables...")
+    print("Dropping all tables...")
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
-    print("✅ Fresh database created\n")
+    print("Fresh database created\n")
 
     db = SessionLocal()
 
@@ -105,7 +105,7 @@ def reset():
     for item in base_scholarships:
         db.add(Scholarship(**item))
     db.commit()
-    print(f"📦 Seeded {len(base_scholarships)} base scholarships")
+    print(f"Seeded {len(base_scholarships)} base scholarships")
 
     # ── 3. Run the extra seed scripts inline ─────────────────────
     from seed_more_scholarships import seed_scholarships
@@ -117,7 +117,7 @@ def reset():
     seed_niche_scholarships()
 
     total = db.query(Scholarship).count()
-    print(f"📦 Total scholarships in deck: {total}\n")
+    print(f"Total scholarships in deck: {total}\n")
 
     # ── 4. Create demo user with filled profile ──────────────────
     demo_user = User(
@@ -140,7 +140,7 @@ def reset():
     db.add(demo_user)
     db.commit()
     db.refresh(demo_user)
-    print(f"👤 Demo user created: demo@echelon.ai / demo123")
+    print(f"Demo user created: demo@echelon.ai / demo123")
     print(f"   Profile: CS @ UofT, 3.85 GPA, Class of 2027\n")
 
     # ── 5. Pre-populate the tracker with varied pipeline stages ──
@@ -165,7 +165,7 @@ def reset():
         # Round 1
         "President's Entrance Scholarship for Black Students": "Round 1",
 
-        # Won 🎉
+        # Won
         "Burger King Scholars": "Won",
 
         # Lost
@@ -189,19 +189,18 @@ def reset():
     # Print a nice summary
     from collections import Counter
     status_counts = Counter(tracker_presets.values())
-    print(f"📋 Pre-loaded {applied_count} applications into the tracker:")
+    print(f"Pre-loaded {applied_count} applications into the tracker:")
     for status, count in status_counts.items():
-        emoji = {"Saved": "💾", "Applied": "📨", "In Review": "🔍", "Round 1": "🏅", "Won": "🏆", "Lost": "❌"}.get(status, "•")
-        print(f"   {emoji} {status}: {count}")
+        print(f"   - {status}: {count}")
 
-    # Remaining scholarships are unswiped → will appear in the Discover feed
+    # Remaining scholarships are unswiped — will appear in the Discover feed
     unswiped = total - applied_count
-    print(f"\n🃏 {unswiped} scholarships remain in the Discover swipe deck")
+    print(f"\n{unswiped} scholarships remain in the Discover swipe deck")
 
     db.close()
 
     print("\n" + "=" * 50)
-    print("🚀 DEMO READY!")
+    print("DEMO READY!")
     print("=" * 50)
     print()
     print("  Start backend:   cd backend && .venv/bin/uvicorn app.main:app --port 8000")

@@ -15,7 +15,7 @@ def seed_demo_tracker():
     # 1. Ensure the demo user exists
     user = db.query(User).filter(User.email == "demo@echelon.ai").first()
     if not user:
-        print("❌ Demo user not found!")
+        print("Demo user not found!")
         return
         
     # 2. Define the 4 target scholarships
@@ -107,7 +107,7 @@ def seed_demo_tracker():
         db.add(app)
         
     db.commit()
-    print("✅ Successfully populated the Tracker Kanban board with the 4 requested demo scholarships!")
+    print("Successfully populated the Tracker Kanban board with the 4 requested demo scholarships!")
 
 if __name__ == "__main__":
     seed_demo_tracker()
