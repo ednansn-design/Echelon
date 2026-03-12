@@ -165,22 +165,22 @@ export function SwipeCard({ scholarship, onSwipe, index }: SwipeCardProps) {
             {/* Compatibility */}
             <div className="space-y-2">
               <div className="flex justify-between items-baseline">
-                <span className="text-sm font-medium text-slate-500 uppercase tracking-wide">Compatibility</span>
+                <span className="text-xs font-medium text-slate-400">Based on your major &amp; GPA</span>
                 <span className={cn("text-2xl font-bold", probColor)}>{scholarship.win_probability}%</span>
               </div>
-              <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+              <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
                 <div className={cn("h-full rounded-full transition-all duration-1000", probBg)} style={{ width: `${scholarship.win_probability}%` }}></div>
               </div>
             </div>
 
             {/* Tags & Time */}
-            <div className="flex items-center gap-3 text-slate-400 text-sm mt-3 mb-3">
-              <div className="flex items-center gap-1">
-                <Clock size={14} />
-                <span>~{scholarship.effort_hours}h</span>
+            <div className="flex items-center gap-2.5 text-slate-400 text-sm mt-3 mb-3">
+              <div className="flex items-center gap-1 text-xs">
+                <Clock size={13} />
+                <span>~{scholarship.effort_hours}h effort</span>
               </div>
-              {scholarship.tags.slice(0, 3).map((tag, i) => (
-                <span key={i} className="bg-slate-100 px-2 py-0.5 rounded-md text-xs font-medium text-slate-600">{tag}</span>
+              {scholarship.tags.slice(0, 2).map((tag, i) => (
+                <span key={i} className="bg-slate-100 px-2 py-0.5 rounded-md text-[11px] font-medium text-slate-600">{tag}</span>
               ))}
             </div>
 

@@ -13,6 +13,7 @@ import {
   X,
   TrendingUp,
   Sparkles,
+  AlertTriangle,
 } from "lucide-react";
 
 interface ProfileStats {
@@ -283,17 +284,23 @@ export default function ProfilePage() {
           className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 mb-4 group hover:shadow-md transition-all"
         >
           <div className="flex flex-col items-center text-center">
-            {/* Label */}
+            {/* Funding Potential */}
             <span className="text-[10px] uppercase font-extrabold tracking-widest text-slate-400 mb-1 flex items-center gap-1">
-              {showTotalWon && (
-                <TrendingUp size={12} className="text-emerald-500" />
-              )}
-              {heroLabel}
+              <TrendingUp size={12} className="text-emerald-500" />
+              Funding Potential
             </span>
-
-            {/* Big number */}
-            <div className="text-[36px] font-black text-emerald-600 leading-none tracking-tight mb-4">
+            <div className="text-[36px] font-black text-emerald-600 leading-none tracking-tight mb-1">
               ${heroValue.toLocaleString()}
+            </div>
+            <span className="text-[11px] text-slate-400 font-medium mb-4">available this year</span>
+
+            {/* Missed Opportunities — loss aversion trigger */}
+            <div className="w-full bg-rose-50/60 border border-rose-100 rounded-lg px-3.5 py-2.5 mb-4 flex items-center gap-2.5">
+              <AlertTriangle size={14} className="text-rose-400 shrink-0" />
+              <div className="text-left">
+                <span className="text-[11px] font-bold text-rose-600">$42,000 missed last year</span>
+                <span className="text-[10px] text-rose-400 block leading-tight">Scholarships that matched your profile closed without an application</span>
+              </div>
             </div>
 
             {/* ─ Funnel Row ─ */}
@@ -353,15 +360,20 @@ export default function ProfilePage() {
             ) : (
               <>
                 <h3 className="font-bold text-slate-900 text-sm mb-1">
-                  Supercharge your matches
+                  Improve your chances
                 </h3>
-                <p className="text-xs text-slate-500 mb-3 leading-tight">
+                <p className="text-xs text-slate-500 mb-2 leading-tight">
                   {firstMissing
-                    ? `Add your ${FIELD_LABELS[firstMissing] || firstMissing} to boost your Match Power and unlock better funds.`
-                    : "Complete your profile to unlock better matches."}
+                    ? `Add ${FIELD_LABELS[firstMissing] || firstMissing} to unlock more scholarships.`
+                    : "Complete your profile to unlock more scholarships."}
                 </p>
-                <div className="inline-flex bg-indigo-50 text-indigo-700 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
-                  +{boostPercent}% Profile Boost
+                <div className="flex gap-2">
+                  <div className="inline-flex bg-indigo-50 text-indigo-700 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
+                    +3 scholarships
+                  </div>
+                  <div className="inline-flex bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
+                    +{boostPercent}% match power
+                  </div>
                 </div>
               </>
             )}
