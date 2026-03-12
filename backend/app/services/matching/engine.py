@@ -145,12 +145,4 @@ def calculate_win_probability(user, scholarship, total_applicants: int = 0) -> i
         score -= penalty
 
     # ── Final Clamp ──────────────────────────────────────────────
-    calculated_score = max(2, min(98, round(score)))
-    
-    # DEMO DAY OVERRIDES
-    if scholarship.title == "Women Techmakers Scholarship": return 45
-    if scholarship.title == "The Thiel Fellowship": return 2
-    if scholarship.title == "Live Más Scholarship": return 12
-    if scholarship.title == "The Gates Scholarship": return 5
-    
-    return calculated_score
+    return max(2, min(98, round(score)))

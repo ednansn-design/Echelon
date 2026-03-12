@@ -20,6 +20,8 @@ backend/__pycache__/
 frontend/.next/
 frontend/out/
 backend/echelon.db
+echelon.db
+*.db
 backend/server.log
 frontend/frontend.log
 **/__pycache__/
