@@ -298,8 +298,8 @@ export default function ProfilePage() {
             <div className="w-full bg-rose-50/60 border border-rose-100 rounded-lg px-3.5 py-2.5 mb-4 flex items-center gap-2.5">
               <AlertTriangle size={14} className="text-rose-400 shrink-0" />
               <div className="text-left">
-                <span className="text-[11px] font-bold text-rose-600">$42,000 missed last year</span>
-                <span className="text-[10px] text-rose-400 block leading-tight">Scholarships that matched your profile closed without an application</span>
+                <span className="text-[11px] font-bold text-rose-600">$58,000 missed last year</span>
+                <span className="text-[10px] text-rose-400 block leading-tight">Scholarships for Black STEM students closed without your application</span>
               </div>
             </div>
 
@@ -369,7 +369,7 @@ export default function ProfilePage() {
                 </p>
                 <div className="flex gap-2">
                   <div className="inline-flex bg-indigo-50 text-indigo-700 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
-                    +3 scholarships
+                    +5 scholarships
                   </div>
                   <div className="inline-flex bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
                     +{boostPercent}% match power

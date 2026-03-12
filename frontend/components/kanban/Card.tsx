@@ -27,6 +27,12 @@ const COLOR_MAP: Record<string, string> = {
   "from-red-500": "#ef4444", "from-red-600": "#dc2626", "to-yellow-500": "#eab308", "to-red-400": "#f87171",
   "from-zinc-700": "#3f3f46",
   "from-fuchsia-600": "#c026d3",
+  "from-amber-600": "#d97706", "to-amber-500": "#f59e0b",
+  "from-indigo-700": "#4338ca",
+  "from-sky-600": "#0284c7",
+  "from-rose-600": "#e11d48",
+  "to-zinc-500": "#71717a",
+  "from-yellow-600": "#ca8a04",
 };
 
 export interface Application {
