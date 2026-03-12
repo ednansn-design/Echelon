@@ -9,7 +9,7 @@ import { Eye, EyeOff, ArrowRight } from "lucide-react";
 import { Mascot } from "@/components/Mascot";
 
 import { useAuth } from "@/lib/auth";
-import { API_URL } from "@/lib/api"; // We need to export this or hardcode
+import { API_URL, isDemoMode } from "@/lib/api";
 
 export default function LoginPage() {
   const [isLogin, setIsLogin] = useState(false);
@@ -38,9 +38,15 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
+      // Demo mode: skip real API, just log in with mock data
+      if (isDemoMode()) {
+        await login("demo-token");
+        return;
+      }
+
       const endpoint = isLogin ? "/auth/login" : "/auth/register";
       const payload = isLogin
-        ? new URLSearchParams({ username: email, password: password }) // OAuth2 format for FastAPI
+        ? new URLSearchParams({ username: email, password: password })
         : JSON.stringify({ email, password, full_name: fullName });
 
       const res = await fetch(`http://localhost:8000/api${endpoint}`, {
@@ -57,10 +63,7 @@ export default function LoginPage() {
         throw new Error(data.detail || "Authentication failed");
       }
 
-      // Success! Log the user in with context
       await login(data.access_token);
-
-      // The useEffect will handle the redirect once `user` state updates
     } catch (err: any) {
       setError(err.message);
     } finally {

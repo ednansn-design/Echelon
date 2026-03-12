@@ -1,7 +1,8 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { fetchWithAuth } from "./api";
+import { fetchWithAuth, isDemoMode } from "./api";
+import { DEMO_USER } from "./demo-data";
 
 interface User {
     id: number;
@@ -29,8 +30,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Check for token on mount
         const checkAuth = async () => {
+            // Demo mode: auto-login with mock user
+            if (isDemoMode()) {
+                const hasDemoSession = localStorage.getItem("token");
+                if (hasDemoSession) {
+                    setUser(DEMO_USER as User);
+                }
+                setLoading(false);
+                return;
+            }
+
+            // Real mode: check token with backend
             const token = localStorage.getItem("token");
             if (token) {
                 try {
@@ -53,6 +64,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     const login = async (token: string) => {
         localStorage.setItem("token", token);
+
+        if (isDemoMode()) {
+            setUser(DEMO_USER as User);
+            return;
+        }
+
         const res = await fetchWithAuth("/users/me");
         if (res.ok) {
             const userData = await res.json();
@@ -63,7 +80,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const logout = () => {
         localStorage.removeItem("token");
         setUser(null);
-        window.location.href = "/login";
+        if (isDemoMode()) {
+            const basePath = "/Echelon";
+            window.location.href = `${basePath}/login`;
+        } else {
+            window.location.href = "/login";
+        }
     };
 
     return (
