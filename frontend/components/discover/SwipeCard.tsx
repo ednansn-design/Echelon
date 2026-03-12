@@ -90,7 +90,7 @@ export function SwipeCard({ scholarship, onSwipe, index }: SwipeCardProps) {
         <div
           ref={cardRef}
           className={cn(
-            "relative w-[90%] max-w-[360px] h-[440px] bg-white rounded-3xl shadow-xl overflow-hidden cursor-grab active:cursor-grabbing",
+            "relative w-[95%] max-w-[360px] h-[min(440px,calc(100vh-300px))] bg-white rounded-3xl shadow-xl overflow-hidden cursor-grab active:cursor-grabbing",
             index > 0 && "pointer-events-none shadow-none bg-slate-50"
           )}
         >
@@ -184,7 +184,7 @@ export function SwipeCard({ scholarship, onSwipe, index }: SwipeCardProps) {
                 onSwipe("right", scholarship.id);
                 controls.start({ x: 500, opacity: 0, transition: { duration: 0.2 } });
               }}
-              className="w-10 h-10 rounded-full bg-slate-50 border border-slate-100 text-amber-400 flex items-center justify-center shadow-sm hover:scale-110 active:scale-95 transition-transform"
+              className="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 text-amber-400 flex items-center justify-center shadow-sm hover:scale-110 active:scale-95 transition-transform"
             >
               <Star size={18} fill="currentColor" />
             </button>

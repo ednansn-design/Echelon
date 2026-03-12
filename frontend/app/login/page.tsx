@@ -69,7 +69,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white md:bg-slate-50 flex items-center justify-center p-4">
+    <div className="flex-1 bg-white md:bg-slate-50 flex items-center justify-center p-4 overflow-y-auto">
       <div className="w-full max-w-md bg-white md:p-8 md:rounded-3xl md:shadow-xl">
 
         {/* Header */}
@@ -137,7 +137,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+              className="absolute right-1 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-2"
             >
               {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
             </button>

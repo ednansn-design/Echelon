@@ -14,7 +14,7 @@ interface ColumnProps {
 export function KanbanColumn({ id, title, items, color }: ColumnProps) {
   return (
     <div className={cn(
-      "w-[300px] flex-shrink-0 flex flex-col max-h-[calc(100vh-280px)] rounded-3xl overflow-hidden bg-slate-50/50 border border-slate-200/40",
+      "w-[280px] flex-shrink-0 flex flex-col max-h-[60vh] rounded-3xl overflow-hidden bg-slate-50/50 border border-slate-200/40",
       items.length > 0 ? "shadow-sm" : ""
     )}>
       {/* Column Header */}

@@ -334,7 +334,7 @@ export default function OnboardingPage() {
     };
 
     return (
-        <div className="min-h-screen bg-white flex flex-col md:bg-slate-50 md:py-12 md:px-4">
+        <div className="flex-1 bg-white flex flex-col md:bg-slate-50 md:py-12 md:px-4 overflow-y-auto">
             <div className="flex-1 w-full max-w-lg mx-auto bg-white flex flex-col md:rounded-3xl md:shadow-xl md:border md:border-slate-100 md:overflow-hidden relative">
 
                 {/* Progress Bar (Hidden on celebration setup) */}

@@ -21,16 +21,16 @@ export default function DashboardLayout({
 
   if (loading || !user) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50">
+      <div className="flex-1 flex items-center justify-center bg-slate-50">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
       </div>
     );
   }
 
   return (
-    <div className="bg-slate-50 min-h-screen pb-20 relative">
+    <div className="bg-slate-50 flex-1 flex flex-col relative overflow-hidden">
       {/* Main Content */}
-      <main className="w-full mx-auto pt-4 px-4 min-h-[calc(100vh-80px)]">
+      <main className="w-full mx-auto pt-4 px-4 flex-1 overflow-y-auto hide-scrollbar">
         {children}
       </main>
 

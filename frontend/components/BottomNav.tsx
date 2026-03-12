@@ -32,7 +32,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 h-16 bg-white border-t border-slate-100 flex items-center justify-around px-2 z-50 pb-safe">
+    <nav className="sticky bottom-0 h-16 bg-white border-t border-slate-100 flex items-center justify-around px-2 z-50 pb-safe">
       {tabs.map((tab) => {
         const isActive = pathname === tab.href;
         const Icon = tab.icon;

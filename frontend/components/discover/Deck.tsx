@@ -52,7 +52,7 @@ export function Deck({ scholarships: initialData }: DeckProps) {
 
   // Render top 3 cards only for performance
   return (
-    <div className="relative w-full h-[540px] flex justify-center items-start">
+    <div className="relative w-full h-[min(540px,calc(100vh-220px))] flex justify-center items-start">
       <AnimatePresence>
         {cards.slice(0, 3).reverse().map((card, mapIndex, arr) => (
           <SwipeCard

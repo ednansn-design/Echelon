@@ -37,11 +37,16 @@ module.exports = {
       },
       animation: {
         'shimmer': 'shimmer 1.5s linear infinite',
+        'bounce-slow': 'bounce-slow 3s ease-in-out infinite',
       },
       keyframes: {
         shimmer: {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
+        },
+        'bounce-slow': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
         },
       },
     },

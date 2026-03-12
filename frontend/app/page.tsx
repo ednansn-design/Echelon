@@ -5,7 +5,7 @@ import logoPerfect from "../public/logo-perfect.svg";
 
 export default function Splash() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-gradient-to-br from-indigo-600 to-violet-700 text-white relative overflow-hidden">
+    <main className="flex flex-1 min-h-0 flex-col items-center justify-center p-4 bg-gradient-to-br from-indigo-600 to-violet-700 text-white relative overflow-hidden">
       
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
