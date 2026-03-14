@@ -12,13 +12,13 @@ import { useAuth } from "@/lib/auth";
 import { API_URL, isDemoMode } from "@/lib/api";
 
 export default function LoginPage() {
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
 
-  // Form state
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // Form state - pre-filled to match native app demo experience
+  const [fullName, setFullName] = useState("Amara Okafor");
+  const [email, setEmail] = useState("amara.okafor@mail.utoronto.ca");
+  const [password, setPassword] = useState("Echelon@2027");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
